@@ -17,7 +17,7 @@ const customPagination = ({setPage, numberOfPages = 10}) => {
     }
 
     return (
-        <div className='container'>
+        <div className='pagination'>
             <ThemeProvider theme={ darkTheme }>
                 <Pagination count={ numberOfPages } 
                     onChange={ (e) => handlePageChange(e.target.textContent) } 

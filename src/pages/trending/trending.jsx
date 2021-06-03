@@ -24,7 +24,7 @@ const Trending = () => {
   }, [page])
 
     return (
-      <div>
+      <div className='container'>
         <div className='pageTitle'>Trending</div>
         <div className='trending'>
           {

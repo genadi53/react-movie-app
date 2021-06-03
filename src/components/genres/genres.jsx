@@ -33,8 +33,8 @@ const Genres = ({
     setGenres(data.genres);
   };
 
-  useEffect(async () => {
-    await fetchGenres();
+  useEffect(() => {
+    fetchGenres();
 
     return () => {
       setGenres({}); // unmounting

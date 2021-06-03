@@ -8,7 +8,6 @@ const SingleContent = ({item}) => {
 
     return (
         <div className='card'>
-            
             <Badge badgeContent={ vote_average } 
                 color={ vote_average > 6 ? 'primary': 'secondary' }
             />
@@ -20,7 +19,7 @@ const SingleContent = ({item}) => {
             <b className='title'>{ title || name }</b>
 
             <span className='subTitle'> 
-                {media_type === 'movie' ? 'Movie' : 'TV Series'}   
+                {media_type === 'movie' ? 'Movie' : 'TV Series' }   
                 
                 <span className='subTitle'>
                     {release_date || first_air_date}

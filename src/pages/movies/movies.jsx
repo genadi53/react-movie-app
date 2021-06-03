@@ -17,7 +17,8 @@ const Movies = () => {
 
     const fetchMovies = async () => {
         //b1f8bbd623ddb1028d2d921f7ee936c2  ${process.env.REACR_APP_API_KEY}
-        const { data } = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=b1f8bbd623ddb1028d2d921f7ee936c2&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`);
+        const { data } = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=b1f8bbd623ddb1028d2d921f7ee936c2&
+        language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`);
         
         setContent(data.results);
         //console.log(data , data.results)
@@ -25,13 +26,13 @@ const Movies = () => {
     }
 
 
-    useEffect(async() => {
-        await fetchMovies();
+    useEffect(() => {
+        fetchMovies();
         // eslint-disable-next-line
     }, [page, genreforURL]);
 
     return (
-        <div>
+        <div className='container'>
             <div className='pageTitle'>Movies</div>
 
             <Genres key={1}
@@ -45,9 +46,12 @@ const Movies = () => {
 
             <div className='movies'>
             {
-                content && content.map((c) => (
-                <SingleContent key={c.id} item={c}/>
-                ))
+                content && content.map((c) => {
+                    c.media_type = `movie`;
+                    return(
+                        <SingleContent key={c.id} item={c}/>
+                    );
+                })
             }
             </div>
             { numberOfPages > 1 && (
